@@ -1,0 +1,12 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  
+  /* Latar belakang gradien agar efek glassmorphism terlihat */
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  
+  /* Fallback */
+  background-color: #f6d365;
+}

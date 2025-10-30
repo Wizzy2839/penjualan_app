@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Penjualan App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <div id="header-placeholder"></div>
+
+  <main class="container mx-auto p-4 md:px-8 flex-grow">
+    
+    <div class="max-w-6xl mx-auto p-8 rounded-2xl border border-white/20 bg-white/30 shadow-2xl backdrop-blur-lg mb-8">
+      <h1 class="text-2xl font-bold text-gray-800 mb-6">Daftar Produk</h1>
+      <div id="product-list-feedback" class="text-sm mb-4"></div>
+      
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-white/30">
+          <thead class="bg-white/40">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">ID</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Nama Produk</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Harga</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="product-table-body" class="bg-white/20 divide-y divide-white/20">
+            <tr>
+              <td colspan="4" class="px-6 py-4 text-center">
+                <i class="fas fa-spinner fa-spin text-2xl text-gray-600"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto p-8 rounded-2xl border border-white/20 bg-white/30 shadow-2xl backdrop-blur-lg">
+      
+      <h1 id="form-title" class="text-2xl font-bold text-gray-800 mb-6">Tambah Produk Baru</h1>
+      
+      <form id="add-product-form" class="space-y-4">
+        
+        <input type="hidden" id="product_id" name="id">
+        
+        <div>
+          <label for="title" class="block text-sm font-medium text-gray-700">Nama Produk</label>
+          <input type="text" id="title" name="title" required [cite: 301]
+                 class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm bg-white/50 border border-white/30 focus:outline-none focus:ring-orange-500 focus:border-orange-500 placeholder-gray-500 text-gray-800">
+        </div>
+
+        <div>
+          <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+          <input type="number" id="price" name="price" step="0.01" required 
+                 class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm bg-white/50 border border-white/30 focus:outline-none focus:ring-orange-500 focus:border-orange-500 placeholder-gray-500 text-gray-800">
+        </div>
+        
+        <div>
+          <label for="category" class="block text-sm font-medium text-gray-700">Kategori</label>
+          <input type="text" id="category" name="category" required 
+                 class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm bg-white/50 border border-white/30 focus:outline-none focus:ring-orange-500 focus:border-orange-500 placeholder-gray-500 text-gray-800"
+                 [cite_start]placeholder="e.g., electronics, jewelery">
+        </div>
+
+        <div>
+          <label for="image" class="block text-sm font-medium text-gray-700">URL Gambar</label>
+          <input type="url" id="image" name="image" required
+                 class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm bg-white/50 border border-white/30 focus:outline-none focus:ring-orange-500 focus:border-orange-500 placeholder-gray-500 text-gray-800" 
+                 placeholder="https://example.com/image.jpg">
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+          <textarea id="description" name="description" rows="4" required [cite: 317]
+                    class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm bg-white/50 border border-white/30 focus:outline-none focus:ring-orange-500 focus:border-orange-500 placeholder-gray-500 text-gray-800"></textarea>
+        </div>
+
+        <div id="form-feedback" class="text-sm"></div>
+        
+        <div class="flex space-x-4">
+          <button type="submit" id="submit-btn" [cite: 321]
+                  class="flex-1 bg-orange-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+            <span id="submit-text">Tambah Produk</span>
+            <i id="submit-spinner" class="fas fa-spinner fa-spin hidden ml-2"></i>
+          </button>
+          
+          <button type="button" id="cancel-edit-btn" 
+                  class="hidden flex-1 bg-gray-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-600 transition-colors">
+            Batal Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer id="footer-placeholder" class="mt-16"></footer>
+
+  <script src="page-loader.js" defer></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>
